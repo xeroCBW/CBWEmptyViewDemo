@@ -1,0 +1,21 @@
+PODS:
+  - FBRetainCycleDetector (0.1.2)
+  - JHUD (0.1.0)
+  - MJRefresh (3.1.12)
+  - MLeaksFinder (0.2.0):
+    - FBRetainCycleDetector
+
+DEPENDENCIES:
+  - JHUD
+  - MJRefresh
+  - MLeaksFinder
+
+SPEC CHECKSUMS:
+  FBRetainCycleDetector: 45462f9ed1af0cd77224a4cc4e6dacaca47371b4
+  JHUD: 3e240b98bf9ed0c8e9edc532e91765fba0cb6b9e
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  MLeaksFinder: 07ab450d72d3bf5ef4201b74047d74ceae66d605
+
+PODFILE CHECKSUM: a2fa34ad99a2149ecf82521b84db4e7cedc80ba7
+
+COCOAPODS: 1.0.1
