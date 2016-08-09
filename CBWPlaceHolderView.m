@@ -78,6 +78,11 @@ static CGFloat kCBWEmptyViewButtonHeight = 40;
     CBWPlaceHolderView *cmp = [[self alloc]init];
     cmp.parentView = parentView;
     
+    //不能弹簧效果
+    if ([parentView isKindOfClass:[UIScrollView class]]) {
+        UIScrollView *view = (UIScrollView *)parentView;
+        view.bounces = NO;
+    }
     
     switch (type) {
         case CBWPlaceHolderViewTypeLoading: {
@@ -109,6 +114,12 @@ static CGFloat kCBWEmptyViewButtonHeight = 40;
 }
 
 + (instancetype)showEmptyViewWithMessage:(NSString *)message inparentView:(UIView *)parentView{
+    
+    //不能弹簧效果
+    if ([parentView isKindOfClass:[UIScrollView class]]) {
+        UIScrollView *view = (UIScrollView *)parentView;
+        view.bounces = NO;
+    }
     
     CBWPlaceHolderView *cmp = [[self alloc]init];
     
@@ -158,6 +169,11 @@ static CGFloat kCBWEmptyViewButtonHeight = 40;
  *  消失,实际上是隐藏
  */
 - (void)dismiss{
+    
+    if ([self.parentView isKindOfClass:[UIScrollView class]]) {
+        UIScrollView *view = (UIScrollView *)self.parentView;
+        view.bounces = YES;
+    }
     
     [self.imageView stopAnimating];
     self.hidden = YES;
