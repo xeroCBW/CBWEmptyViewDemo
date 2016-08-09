@@ -24,17 +24,24 @@
 
     
     self.tableView.tableFooterView = [[UIView alloc]init];
-    
-    if ([self.selectorStr isEqualToString:@"setUpReloadDataButton"]) {
-        [self setUpReloadDataButton];
-    }else if([self.selectorStr isEqualToString:@"setUpFullScreenRefresh"]){
-        [self setUpFullScreenRefresh];
-    }else if ([self.selectorStr isEqualToString:@"setUpImageArray"]){
-        [self setUpImageArray];
-    }else if([self.selectorStr isEqualToString:@"setUpGifImage"]){
-        [self setUpGifImage];
-    }
+//
+//    if ([self.selectorStr isEqualToString:@"setUpReloadDataButton"]) {
+//        [self setUpReloadDataButton];
+//    }else if([self.selectorStr isEqualToString:@"setUpFullScreenRefresh"]){
+//        [self setUpFullScreenRefresh];
+//    }else if ([self.selectorStr isEqualToString:@"setUpImageArray"]){
+//        [self setUpImageArray];
+//    }else if([self.selectorStr isEqualToString:@"setUpGifImage"]){
+//        [self setUpGifImage];
+//    }
 
+    
+    SEL sel = NSSelectorFromString(self.selectorStr);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [self performSelector:sel withObject:nil];
+#pragma clang diagnostic pop
+    
     
   }
 
