@@ -72,47 +72,6 @@ static CGFloat kCBWEmptyViewButtonHeight = 40;
  }
 
 
-+ (instancetype)showEmptyViewWithType:(CBWPlaceHolderViewType)type inParentView:(UIView *)parentView{
-    
-       
-    CBWPlaceHolderView *cmp = [[self alloc]init];
-    cmp.parentView = parentView;
-    
-    //不能弹簧效果
-    if ([parentView isKindOfClass:[UIScrollView class]]) {
-        UIScrollView *view = (UIScrollView *)parentView;
-        view.bounces = NO;
-    }
-    
-    switch (type) {
-        case CBWPlaceHolderViewTypeLoading: {
-            
-            NSMutableArray * images = [NSMutableArray array];
-            for (int index = 0; index<=19; index++) {
-                NSString * imageName = [NSString stringWithFormat:@"%d.png",index];
-                UIImage *image = [UIImage imageNamed:imageName];
-                [images addObject:image];
-            }
-            cmp.messageLabel.text = @"正在加载中...";
-            cmp.customAnimationImages = images;
-            break;
-        }
-        case CBWPlaceHolderViewTypeNomoredata: {
-            cmp.messageLabel.text = @"暂无数据";
-            cmp.customImage = [UIImage imageNamed:@"norecord"];
-            break;
-        }
-        case CBWPlaceHolderViewTypeNetworkError: {
-            cmp.messageLabel.text = @"网络异常";
-            cmp.customImage = [UIImage imageNamed:@"nullData"];
-            break;
-        }
-    }
-    
-    
-    return cmp;
-}
-
 + (instancetype)showEmptyViewWithMessage:(NSString *)message inparentView:(UIView *)parentView{
     
     //不能弹簧效果
@@ -218,7 +177,7 @@ static CGFloat kCBWEmptyViewButtonHeight = 40;
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.imageView.image = gifImage;
                 //打印当前线程
-                NSLog(@"%@",[NSThread currentThread]);
+//                NSLog(@"%@",[NSThread currentThread]);
             });
             
             

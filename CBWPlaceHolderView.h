@@ -8,25 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, CBWPlaceHolderViewType){
-    
-    CBWPlaceHolderViewTypeLoading = 0,//加载中
-    CBWPlaceHolderViewTypeNomoredata,//暂无数据
-    CBWPlaceHolderViewTypeNetworkError,//网络异常
-};
-
 @interface CBWPlaceHolderView : UIView
 
-+ (instancetype)showEmptyViewWithType:(CBWPlaceHolderViewType)type inParentView:(UIView *)parentView;
-
-/**
- *  创建点击界面不会动作的 HUD
- *
- *  @param message    HUD 的文字说明
- *  @param parentView 需要传进来父类View
- *
- *  @return 创建的 HUD
- */
 + (instancetype)showEmptyViewWithMessage:(NSString *)message inparentView:(UIView *)parentView;
 
 /**

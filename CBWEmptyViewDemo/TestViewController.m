@@ -27,9 +27,9 @@
 
     self.dataArr = [NSMutableArray arrayWithArray:@[
                                                     @"setUpReloadDataButton",
-                                                    @"setUpFullScreenRefresh",
                                                     @"setUpImageArray",
-                                                    @"setUpGifImage"
+                                                    @"setUpGifImage",
+                                                    
                                                     ]];
 
 }

@@ -61,7 +61,7 @@
  */
 - (void)setUpReloadDataButton{
     
-    self.view.cbw_placeHolderView = [CBWPlaceHolderView showEmptyViewWithMessage:@"898984092843\ngiuhsiufhshdfkshf" inparentView:self.view];
+    self.view.cbw_placeHolderView = [CBWPlaceHolderView showEmptyViewWithMessage:@"暂无数据" inparentView:self.view];
     
  
     self.view.cbw_placeHolderView.buttonTiltle = @"重新加载";
@@ -85,27 +85,12 @@
 }
 
 
-#pragma mark - 样例二(能全屏点击,没有有刷新按钮)
-
-- (void)setUpFullScreenRefresh{
-    
-    self.view.cbw_placeHolderView = [CBWPlaceHolderView showEmptyViewWithMessage:@"您还没有搜货地址\n您需要新建一个收货地址便于收货" inparentView:self.view target:self action:@selector(dismissAction)];
-    
-    self.view.cbw_placeHolderView.buttonTiltle = @"新建地址";
-    self.view.cbw_placeHolderView.buttonTarget = self;
-    self.view.cbw_placeHolderView.buttonAction = @selector(dismissAction);
-    self.view.cbw_placeHolderView.customImage = [UIImage imageNamed:@"nullData"];
-    
-}
-
-#pragma mark - 传入一个图片数组
+#pragma mark - 样例二 传入一个图片数组,
 
 - (void)setUpImageArray{
     
-    self.view.cbw_placeHolderView = [CBWPlaceHolderView showEmptyViewWithMessage:@"加载中..." inparentView:self.view target:self action:@selector(dismissAction)];
-    
-    [self.view.cbw_placeHolderView addButtonWithTitle:@"重新加载" target: self action:@selector(showNoMoreData)];
-    
+    self.view.cbw_placeHolderView = [CBWPlaceHolderView showEmptyViewWithMessage:@"加载中..." inparentView:self.view];
+
     NSMutableArray * images = [NSMutableArray array];
     for (int index = 0; index<=19; index++) {
         NSString * imageName = [NSString stringWithFormat:@"%d.png",index];
@@ -117,11 +102,11 @@
     
 }
 
-#pragma mark - 传入一个 gif 图片
+#pragma mark - 样例三 传入一个 gif 图片
 
 - (void)setUpGifImage{
     
-    self.view.cbw_placeHolderView = [CBWPlaceHolderView showEmptyViewWithMessage:@"加载中..." inparentView:self.view target:self action:@selector(dismissAction)];
+    self.view.cbw_placeHolderView = [CBWPlaceHolderView showEmptyViewWithMessage:@"加载中..." inparentView:self.view];
     //loadinggif4
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"loadinggif3" ofType:@"gif"];
@@ -131,23 +116,6 @@
     self.view.cbw_placeHolderView.gifImageData = data;
     
 }
-
-#pragma mark - 消失方法
-- (void)dismissAction{
-    
-    NSLog(@"%s",__func__);
-    
-    [self.view.cbw_placeHolderView dismiss];
-}
-
-#pragma mark - showNoMoreData
-
-- (void)showNoMoreData{
-    
-    self.view.cbw_placeHolderView = [CBWPlaceHolderView showEmptyViewWithType:CBWPlaceHolderViewTypeNomoredata inParentView:self.view];
-}
-
-
 
 
 @end
